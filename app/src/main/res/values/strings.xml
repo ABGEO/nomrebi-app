@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">ნომრები</string>
+    <string name="app_description">ნომრები - ტელეფონის ნომრების ბაზა</string>
+    <string name="app_version">Version %1$s</string>
+    <string name="app_copyright">Copyright © 2020–%1$d. www.abgeo.dev</string>
     <string name="action_about">აპის შესახებ</string>
-    <string name="search_fragment_label">ძიების ფრაგმენტი</string>
     <string name="search_description">მიიღეთ ინფორმაცია ნომრის მფლობელის შესახებ</string>
     <string name="search">ძიება</string>
     <string name="error_phone_number_is_empty">მიუთითეთ ტელეფონის ნომერი!</string>

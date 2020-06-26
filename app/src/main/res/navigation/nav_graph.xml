@@ -8,15 +8,26 @@
     <fragment
         android:id="@+id/SearchFragment"
         android:name="dev.abgeo.nomrebi.fragment.SearchFragment"
-        android:label="@string/search_fragment_label"
+        android:label="SearchFragment"
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_SearchFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="dev.abgeo.nomrebi.fragment.ResultFragment"
-        android:label="fragment_result_list"
-        tools:layout="@layout/fragment_result_list" />
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result_list" >
+        <action
+            android:id="@+id/action_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="dev.abgeo.nomrebi.fragment.AboutFragment"
+        android:label="AboutFragment" />
 </navigation>

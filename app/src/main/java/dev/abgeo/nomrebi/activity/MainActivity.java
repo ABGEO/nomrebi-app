@@ -4,11 +4,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.navigation.Navigation;
 
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import dev.abgeo.nomrebi.R;
 
@@ -37,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_about) {
-            Snackbar.make(findViewById(android.R.id.content), "გვერდი მალე დაემატება.", Snackbar.LENGTH_LONG)
-                    .show();
+            Navigation.findNavController(findViewById(R.id.nav_host_fragment))
+                    .navigate(R.id.action_to_aboutFragment);
 
             return true;
         }
