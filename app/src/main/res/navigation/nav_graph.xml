@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SearchFragment"
-        android:name="dev.abgeo.nomrebi.SearchFragment"
+        android:name="dev.abgeo.nomrebi.fragment.SearchFragment"
         android:label="@string/search_fragment_label"
         tools:layout="@layout/fragment_search">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="dev.abgeo.nomrebi.ResultFragment"
+        android:name="dev.abgeo.nomrebi.fragment.ResultFragment"
         android:label="fragment_result_list"
         tools:layout="@layout/fragment_result_list" />
 </navigation>

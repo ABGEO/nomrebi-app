@@ -1,4 +1,4 @@
-package dev.abgeo.nomrebi;
+package dev.abgeo.nomrebi.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Map;
+
+import dev.abgeo.nomrebi.R;
+import dev.abgeo.nomrebi.viewAdapter.ResultRecyclerViewAdapter;
 
 public class ResultFragment extends Fragment {
 

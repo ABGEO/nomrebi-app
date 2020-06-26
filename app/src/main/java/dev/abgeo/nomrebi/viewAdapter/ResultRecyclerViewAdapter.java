@@ -1,4 +1,4 @@
-package dev.abgeo.nomrebi;
+package dev.abgeo.nomrebi.viewAdapter;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,11 +9,13 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import dev.abgeo.nomrebi.R;
+
 public class ResultRecyclerViewAdapter extends RecyclerView.Adapter<ResultRecyclerViewAdapter.ViewHolder> {
 
     private final List<String> mValues;
 
-    ResultRecyclerViewAdapter(List<String> items) {
+    public ResultRecyclerViewAdapter(List<String> items) {
         mValues = items;
     }
 
@@ -55,4 +57,5 @@ public class ResultRecyclerViewAdapter extends RecyclerView.Adapter<ResultRecycl
             return super.toString() + " '" + mContentView.getText() + "'";
         }
     }
+
 }

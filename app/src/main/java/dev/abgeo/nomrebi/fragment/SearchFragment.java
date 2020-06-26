@@ -1,4 +1,4 @@
-package dev.abgeo.nomrebi;
+package dev.abgeo.nomrebi.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import dev.abgeo.nomrebi.R;
 
 public class SearchFragment extends Fragment {
 
