@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="ტელეფონის ნომერი"
+        android:hint="@string/phone_number_hint"
         android:importantForAutofill="no"
         android:inputType="phone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,14 +32,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
         android:layout_marginTop="20dp"
-        android:text="@string/search"
+        android:background="@drawable/search_btn_ripple"
+        android:src="@drawable/ic_search_48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
+        android:contentDescription="@string/search" />
 </androidx.constraintlayout.widget.ConstraintLayout>

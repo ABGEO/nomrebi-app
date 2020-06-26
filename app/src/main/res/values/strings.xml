@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">ნომრები</string>
-    <string name="action_settings">პარამეტრები</string>
+    <string name="action_about">აპის შესახებ</string>
     <string name="search_fragment_label">ძიების ფრაგმენტი</string>
     <string name="search_description">მიიღეთ ინფორმაცია ნომრის მფლობელის შესახებ</string>
     <string name="search">ძიება</string>
     <string name="error_phone_number_is_empty">მიუთითეთ ტელეფონის ნომერი!</string>
     <string name="error_no_result">ჩანაწერი ამ ნომერზე ვერ მოიძებნა!</string>
+    <string name="phone_number_hint">ტელეფონის ნომერი</string>
 </resources>

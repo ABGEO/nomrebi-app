@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import dev.abgeo.nomrebi.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     @Override
@@ -31,7 +36,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            Snackbar.make(findViewById(android.R.id.content), "გვერდი მალე დაემატება.", Snackbar.LENGTH_LONG)
+                    .show();
+
+            return true;
+        }
+
+        if (id == android.R.id.home) {
+            getSupportFragmentManager().popBackStack();
             return true;
         }
 
