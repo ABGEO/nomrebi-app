@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -51,7 +52,8 @@ public class SearchFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageButton btnSearch = view.findViewById(R.id.btnSearch);
+        final ImageButton btnSearch = view.findViewById(R.id.btnSearch);
+        final ProgressBar pbSearch = view.findViewById(R.id.pbSearch);
         final EditText etPhoneNumber = view.findViewById(R.id.etPhoneNumber);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -62,8 +64,14 @@ public class SearchFragment extends Fragment {
 
                 if (phoneNumber.isEmpty()) {
                     etPhoneNumber.setError(getResources().getString(R.string.error_phone_number_is_empty));
+                    etPhoneNumber.requestFocus();
                     return;
                 }
+
+                btnSearch.setEnabled(false);
+                btnSearch.setImageResource(0);
+                pbSearch.setVisibility(View.VISIBLE);
+                etPhoneNumber.setEnabled(false);
 
                 StringRequest stringRequest = new StringRequest(
                         Request.Method.POST,
@@ -94,6 +102,12 @@ public class SearchFragment extends Fragment {
                                 } catch (JSONException e) {
                                     Log.e(TAG, "onResponse: ", e);
                                 }
+
+                                btnSearch.setEnabled(true);
+                                btnSearch.setImageResource(R.drawable.ic_search_48dp);
+                                pbSearch.setVisibility(View.INVISIBLE);
+                                etPhoneNumber.setEnabled(true);
+                                etPhoneNumber.requestFocus();
                             }
                         },
                         new Response.ErrorListener() {
@@ -109,6 +123,11 @@ public class SearchFragment extends Fragment {
                                     Snackbar.make(view, "დაფიქსირდა ინტერნეტთან დაკავშირების შეცდომა.", Snackbar.LENGTH_LONG)
                                             .show();
                                 }
+
+                                btnSearch.setEnabled(true);
+                                btnSearch.setImageResource(R.drawable.ic_search_48dp);
+                                pbSearch.setVisibility(View.INVISIBLE);
+                                etPhoneNumber.setEnabled(true);
                             }
                         }
                 ) {

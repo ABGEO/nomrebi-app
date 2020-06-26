@@ -14,6 +14,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
         android:text="@string/search_description"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/etPhoneNumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -38,10 +39,23 @@
         android:layout_height="64dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/search_btn_ripple"
+        android:contentDescription="@string/search"
         android:src="@drawable/ic_search_48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber"
-        android:contentDescription="@string/search" />
+        app:layout_constraintTop_toBottomOf="@+id/etPhoneNumber" />
+
+    <ProgressBar
+        android:id="@+id/pbSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTint="#FFFFFF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnSearch"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
 </androidx.constraintlayout.widget.ConstraintLayout>
