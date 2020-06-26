@@ -21,7 +21,7 @@ import dev.abgeo.nomrebi.viewAdapter.ResultRecyclerViewAdapter;
 
 public class ResultFragment extends Fragment {
 
-    private ArrayList<String> mItems = new ArrayList<>();
+    private ArrayList<String> mResult = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,7 @@ public class ResultFragment extends Fragment {
                 .getGraph()
                 .getArguments();
 
-        mItems = (ArrayList<String>) defaultArguments.get("items").getDefaultValue();
+        mResult = (ArrayList<String>) defaultArguments.get("result").getDefaultValue();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ResultFragment extends Fragment {
             RecyclerView recyclerView = (RecyclerView) view;
 
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new ResultRecyclerViewAdapter(mItems));
+            recyclerView.setAdapter(new ResultRecyclerViewAdapter(mResult));
         }
 
         return view;
