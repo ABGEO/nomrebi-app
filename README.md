@@ -1,13 +1,14 @@
 # nomrebi-app
 
-Android app for get information about phone numbers stored in the Nomrebi.com database
+Android app for getting information about phone numbers stored in the Nomrebi.com database
 
 [![GitHub release](https://img.shields.io/github/release/ABGEO/nomrebi-app.svg)](https://github.com/ABGEO/nomrebi-app/releases)
 [![GitHub license](https://img.shields.io/github/license/ABGEO/nomrebi-app.svg)](https://github.com/ABGEO/nomrebi-app/blob/1.x/LICENSE)
 
 ## Installation
 
-Download and install [this](app/release/app-release.apk) APK or compile it yourself.
+Download and install APK from the [latest release page](https://github.com/ABGEO/nomrebi-app/releases/latest), 
+[repository](app/release/app-release.apk) or compile it yourself.
 
 ## Changelog
 
