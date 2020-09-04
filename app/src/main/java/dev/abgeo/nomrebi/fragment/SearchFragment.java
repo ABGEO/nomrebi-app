@@ -28,18 +28,15 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import dev.abgeo.nomrebi.R;
 
 public class SearchFragment extends Fragment {
 
     private static final String TAG = "SearchFragment";
-    private static final String API_URL = "https://simpleapi.info/apps/numbers-info/info.php?results=json";
+    private static final String API_BASE_URL = "https://nomrebi-api.herokuapp.com/api";
 
     @Override
     public View onCreateView(
@@ -75,20 +72,20 @@ public class SearchFragment extends Fragment {
                 etPhoneNumber.setEnabled(false);
 
                 StringRequest stringRequest = new StringRequest(
-                        Request.Method.POST,
-                        API_URL,
+                        Request.Method.GET,
+                        API_BASE_URL + "/number-info/" + phoneNumber,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 try {
-                                    JSONObject responseConverted = new JSONObject(response);
+                                    JSONArray responseConverted = new JSONArray(response);
+                                    Log.d(TAG, response);
 
-                                    if (responseConverted.has("res") && responseConverted.get("res").equals("yes")) {
-                                        JSONArray items = responseConverted.getJSONArray("items");
+                                    if (0 != responseConverted.length()) {
                                         ArrayList<String> mItems = new ArrayList<>();
 
-                                        for (int i = 0; i < items.length(); i++) {
-                                            mItems.add(items.getString(i));
+                                        for (int i = 0; i < responseConverted.length(); i++) {
+                                            mItems.add(responseConverted.getString(i));
                                         }
 
                                         NavArgument.Builder builder = new NavArgument.Builder();
@@ -131,14 +128,7 @@ public class SearchFragment extends Fragment {
                                 etPhoneNumber.setEnabled(true);
                             }
                         }
-                ) {
-                    @Override
-                    protected Map<String,String> getParams(){
-                        HashMap<String, String> params = new HashMap<>();
-                        params.put("number", phoneNumber);
-                        return params;
-                    }
-                };
+                ) {};
 
                 queue.add(stringRequest);
             }
