@@ -16,18 +16,20 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -71,21 +73,21 @@ public class SearchFragment extends Fragment {
                 pbSearch.setVisibility(View.VISIBLE);
                 etPhoneNumber.setEnabled(false);
 
-                StringRequest stringRequest = new StringRequest(
+                JsonObjectRequest numberInfoRequest = new JsonObjectRequest(
                         Request.Method.GET,
-                        API_BASE_URL + "/number-info/" + phoneNumber,
-                        new Response.Listener<String>() {
+                        API_BASE_URL + "/number-info/" + phoneNumber + "?include-info=1",
+                        null,
+                        new Response.Listener<JSONObject>() {
                             @Override
-                            public void onResponse(String response) {
+                            public void onResponse(JSONObject response) {
                                 try {
-                                    JSONArray responseConverted = new JSONArray(response);
-                                    Log.d(TAG, response);
+                                    JSONArray names = response.getJSONArray("names");
 
-                                    if (0 != responseConverted.length()) {
+                                    if (0 != names.length()) {
                                         ArrayList<String> mItems = new ArrayList<>();
 
-                                        for (int i = 0; i < responseConverted.length(); i++) {
-                                            mItems.add(responseConverted.getString(i));
+                                        for (int i = 0; i < names.length(); i++) {
+                                            mItems.add(names.getString(i));
                                         }
 
                                         NavArgument.Builder builder = new NavArgument.Builder();
@@ -130,7 +132,12 @@ public class SearchFragment extends Fragment {
                         }
                 ) {};
 
-                queue.add(stringRequest);
+                numberInfoRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        10000,
+                        DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+                queue.add(numberInfoRequest);
             }
         });
     }
