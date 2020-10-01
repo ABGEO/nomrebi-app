@@ -90,10 +90,18 @@ public class SearchFragment extends Fragment {
                                             mItems.add(names.getString(i));
                                         }
 
-                                        NavArgument.Builder builder = new NavArgument.Builder();
-                                        builder.setDefaultValue(mItems);
+                                        NavArgument.Builder phoneBuilder = new NavArgument.Builder();
+                                        NavArgument.Builder additionalBuilder = new NavArgument.Builder();
+                                        NavArgument.Builder namesBuilder = new NavArgument.Builder();
+
+                                        phoneBuilder.setDefaultValue(phoneNumber);
+                                        additionalBuilder.setDefaultValue(response.getJSONObject("info").toString());
+                                        namesBuilder.setDefaultValue(mItems);
+
                                         NavController controller = NavHostFragment.findNavController(SearchFragment.this);
-                                        controller.getGraph().addArgument("result", builder.build());
+                                        controller.getGraph().addArgument("phone", phoneBuilder.build());
+                                        controller.getGraph().addArgument("additional", additionalBuilder.build());
+                                        controller.getGraph().addArgument("names", namesBuilder.build());
                                         controller.navigate(R.id.action_SearchFragment_to_resultFragment);
                                     } else {
                                         Log.i(TAG, "onResponse: No Result");
