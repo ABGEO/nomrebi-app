@@ -14,6 +14,11 @@ Download and install APK from the [latest release page](https://github.com/ABGEO
 
 Please see [CHANGELOG](CHANGELOG.md) for details.
 
+## Related Projects
+
+- [nomrebi-py](https://github.com/ABGEO/nomrebi-py) - Get information about phone numbers stored in 
+the Nomrebi.com database 
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
