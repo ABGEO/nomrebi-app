@@ -44,6 +44,10 @@ public class ResultFragment extends Fragment {
             phone = (String) defaultArguments.get("phone").getDefaultValue();
             additional = new JSONObject((String) defaultArguments.get("additional").getDefaultValue());
             mResult = (ArrayList<String>) defaultArguments.get("names").getDefaultValue();
+
+            if (!additional.getString("number").isEmpty()) {
+                phone = additional.getString("number");
+            }
         } catch (JSONException ignored) {
         }
     }
