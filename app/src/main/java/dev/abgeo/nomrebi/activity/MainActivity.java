@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import java.util.Objects;
 
 import dev.abgeo.nomrebi.R;
+import dev.abgeo.nomrebi.task.CheckUpdateTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Check update and get dialog if needed.
+        new CheckUpdateTask(this).execute();
 
         Navigation.findNavController(findViewById(R.id.nav_host_fragment))
                 .addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {

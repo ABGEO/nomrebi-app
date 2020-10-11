@@ -9,4 +9,10 @@
     <string name="error_phone_number_is_empty">მიუთითეთ ტელეფონის ნომერი!</string>
     <string name="error_no_result">ჩანაწერი ამ ნომერზე ვერ მოიძებნა!</string>
     <string name="phone_number_hint">ტელეფონის ნომერი</string>
+    <string name="update_dialog_title">განახლება</string>
+    <string name="close">დახურვა</string>
+    <string name="update">განახლება</string>
+    <string name="new_version_is_available">ხელმისაწვდომია აპლიკაციის ახალი ვერსია - %1$s</string>
+    <string name="update_notes_heading">ცვლილებები:</string>
+    <string name="release_url_title">ვერსიის ბმული</string>
 </resources>

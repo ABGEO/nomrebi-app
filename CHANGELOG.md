@@ -1,5 +1,10 @@
 # nomrebi-app
 
+## [v1.3.0] - 2020-10-11
+
+### Added
+- Update Manager.
+
 ## [v1.2.0] - 2020-10-01
 
 ### Updated
