@@ -1,5 +1,7 @@
 # nomrebi-app
 
+**This project is unmaintained. Please, use the web application: [ABGEO/nomrebi-web](https://github.com/ABGEO/nomrebi-web)**
+
 Android app for getting information about phone numbers stored in the Nomrebi.com database
 
 [![GitHub release](https://img.shields.io/github/release/ABGEO/nomrebi-app.svg)](https://github.com/ABGEO/nomrebi-app/releases)
